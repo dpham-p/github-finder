@@ -10,12 +10,13 @@ import GithubState from './context/github/GithubState';
 import AlertState from './context/alert/AlertState';
 
 import './App.css';
+import { publicDecrypt } from 'crypto';
 
 const App = () => {
   return (
     <GithubState>
       <AlertState>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <div className='App'>
             <Navbar title='Github Finder' icon='fab fa-github' />
             <div className='container'>
