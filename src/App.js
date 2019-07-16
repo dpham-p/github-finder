@@ -15,19 +15,15 @@ const App = () => {
   return (
     <GithubState>
       <AlertState>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <div className='App'>
             <Navbar title='Github Finder' icon='fab fa-github' />
             <div className='container'>
               <Alert />
               <Switch>
-                <Route exact path='/github-finder' component={Home} />
-                <Route exact path='/github-finder/about' component={About} />
-                <Route
-                  exact
-                  path='/github-finder/user/:login'
-                  component={User}
-                />
+                <Route exact path='/' component={Home} />
+                <Route exact path='/about' component={About} />
+                <Route exact path='/user/:login' component={User} />
                 <Route component={NotFound} />
               </Switch>
             </div>
